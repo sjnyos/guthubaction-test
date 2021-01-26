@@ -16,6 +16,12 @@ jobs:
        uses: actions/setup-node@v1
        with: 
           node-version: ${{ matrix.node-version}}
-     - run: npm i 
-     - run: npm run build --if-present
-     - run: npm test --if-present  
+     
+     - name: install the package json dependencies
+       run: npm i 
+     - name: building if present
+       run: npm run build --if-present
+     - name: running the npm test
+       run: npm test --if-present  
+     - name: npm start
+       run: npm start
