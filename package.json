@@ -5,5 +5,21 @@
   "private": true,
   "dependencies": {
     "express": "3.x"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjnyos/guthubaction-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjnyos/guthubaction-test/issues"
+  },
+  "homepage": "https://github.com/sjnyos/guthubaction-test#readme"
 }

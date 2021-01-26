@@ -1,0 +1,219 @@
+[2021-01-26 08:00:34Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:34Z INFO HostContext] Well known config file 'Credentials': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials'
+[2021-01-26 08:00:34Z INFO Listener] Runner is built for Linux (X64) - linux-x64.
+[2021-01-26 08:00:34Z INFO Listener] RuntimeInformation: Linux 5.8.0-38-generic #43~20.04.1-Ubuntu SMP Tue Jan 12 16:39:47 UTC 2021.
+[2021-01-26 08:00:34Z INFO Listener] Version: 2.276.1
+[2021-01-26 08:00:34Z INFO Listener] Commit: 5effa808be96eae7f2e08d713426b8d056bddff1
+[2021-01-26 08:00:34Z INFO Listener] Culture: en-US
+[2021-01-26 08:00:34Z INFO Listener] UI Culture: en-US
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:34Z INFO Listener] Validating directory permissions for: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:34Z INFO CommandLineParser] Parse
+[2021-01-26 08:00:34Z INFO CommandLineParser] Parsing 5 args
+[2021-01-26 08:00:34Z INFO CommandLineParser] parsing argument
+[2021-01-26 08:00:34Z INFO CommandLineParser] HasArgs: False
+[2021-01-26 08:00:34Z INFO CommandLineParser] Adding Command: configure
+[2021-01-26 08:00:34Z INFO CommandLineParser] parsing argument
+[2021-01-26 08:00:34Z INFO CommandLineParser] HasArgs: True
+[2021-01-26 08:00:34Z INFO CommandLineParser] arg: url
+[2021-01-26 08:00:34Z INFO CommandLineParser] parsing argument
+[2021-01-26 08:00:34Z INFO CommandLineParser] HasArgs: True
+[2021-01-26 08:00:34Z INFO CommandLineParser] Adding option 'url': 'https://github.com/sjnyos/guthubaction-test'
+[2021-01-26 08:00:34Z INFO CommandLineParser] parsing argument
+[2021-01-26 08:00:34Z INFO CommandLineParser] HasArgs: True
+[2021-01-26 08:00:34Z INFO CommandLineParser] arg: token
+[2021-01-26 08:00:34Z INFO CommandLineParser] parsing argument
+[2021-01-26 08:00:34Z INFO CommandLineParser] HasArgs: True
+[2021-01-26 08:00:34Z INFO CommandLineParser] Adding option 'token': '***'
+[2021-01-26 08:00:34Z INFO Listener] Arguments parsed
+[2021-01-26 08:00:34Z INFO Runner] ExecuteCommand
+[2021-01-26 08:00:34Z INFO ConfigurationStore] currentAssemblyLocation: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin/Runner.Listener.dll
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:00:34Z INFO ConfigurationStore] binPath: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:34Z INFO ConfigurationStore] RootFolder: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:34Z INFO HostContext] Well known config file 'Runner': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.runner'
+[2021-01-26 08:00:34Z INFO ConfigurationStore] ConfigFilePath: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.runner
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:34Z INFO HostContext] Well known config file 'Credentials': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials'
+[2021-01-26 08:00:34Z INFO ConfigurationStore] CredFilePath: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:34Z INFO HostContext] Well known config file 'MigratedCredentials': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_migrated'
+[2021-01-26 08:00:34Z INFO ConfigurationStore] MigratedCredFilePath: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_migrated
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:00:34Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:34Z INFO HostContext] Well known config file 'Service': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.service'
+[2021-01-26 08:00:34Z INFO ConfigurationStore] ServiceConfigFilePath: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.service
+[2021-01-26 08:00:34Z INFO CommandSettings] Flag 'help': 'False'
+[2021-01-26 08:00:34Z INFO CommandSettings] Flag 'version': 'False'
+[2021-01-26 08:00:34Z INFO CommandSettings] Flag 'commit': 'False'
+[2021-01-26 08:00:34Z INFO CommandSettings] Flag 'check': 'False'
+[2021-01-26 08:00:34Z INFO CommandSettings] Command 'configure': 'True'
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE: 
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE: --------------------------------------------------------------------------------
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE: |        ____ _ _   _   _       _          _        _   _                      |
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE: |       / ___(_) |_| | | |_   _| |__      / \   ___| |_(_) ___  _ __  ___      |
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE: |      | |  _| | __| |_| | | | | '_ \    / _ \ / __| __| |/ _ \| '_ \/ __|     |
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE: |      | |_| | | |_|  _  | |_| | |_) |  / ___ \ (__| |_| | (_) | | | \__ \     |
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE: |       \____|_|\__|_| |_|\__,_|_.__/  /_/   \_\___|\__|_|\___/|_| |_|___/     |
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE: |                                                                              |
+[2021-01-26 08:00:34Z INFO Terminal] WRITE: |                       
+[2021-01-26 08:00:34Z INFO Terminal] WRITE: Self-hosted runner registration
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE:                         |
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE: |                                                                              |
+[2021-01-26 08:00:34Z INFO Terminal] WRITE LINE: --------------------------------------------------------------------------------
+[2021-01-26 08:00:34Z INFO ConfigurationManager] ConfigureAsync
+[2021-01-26 08:00:34Z INFO ConfigurationStore] IsConfigured()
+[2021-01-26 08:00:34Z INFO ConfigurationStore] IsConfigured: False
+[2021-01-26 08:00:34Z INFO ConfigurationManager] Is configured: False
+[2021-01-26 08:00:34Z INFO CommandSettings] Arg 'url': 'https://github.com/sjnyos/guthubaction-test'
+[2021-01-26 08:00:34Z INFO CommandSettings] Remove url from Arg dictionary.
+[2021-01-26 08:00:34Z INFO CommandSettings] Arg 'token': '***'
+[2021-01-26 08:00:34Z INFO CommandSettings] Remove token from Arg dictionary.
+[2021-01-26 08:00:35Z INFO ConfigurationManager] Http response code: OK from 'POST https://api.github.com/actions/runner-registration'
+[2021-01-26 08:00:35Z INFO ConfigurationManager] cred retrieved via GitHub auth
+[2021-01-26 08:00:35Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2021-01-26 08:00:35Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-01-26 08:00:35Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2021-01-26 08:00:35Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-01-26 08:00:35Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2021-01-26 08:00:35Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-01-26 08:00:37Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-01-26 08:00:37Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-01-26 08:00:37Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-01-26 08:00:37Z INFO Terminal] WRITE LINE: 
+[2021-01-26 08:00:37Z INFO ConfigurationManager] Test Connection complete.
+[2021-01-26 08:00:37Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:00:37Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:37Z INFO HostContext] Well known config file 'RSACredentials': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams'
+[2021-01-26 08:00:37Z INFO RSAFileKeyManager] Creating new RSA key using 2048-bit key length
+[2021-01-26 08:00:38Z INFO RSAFileKeyManager] Successfully saved RSA key parameters to file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:00:38Z INFO RSAFileKeyManager] Which: 'chmod'
+[2021-01-26 08:00:38Z INFO RSAFileKeyManager] Location: '/usr/bin/chmod'
+[2021-01-26 08:00:38Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:00:38Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/chmod'
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper]   Arguments: '600 /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams'
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper] Failed to update oom_score_adj for PID: 754624.
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper] System.UnauthorizedAccessException: Access to the path '/proc/754624/oom_score_adj' is denied.
+ ---> System.IO.IOException: Permission denied
+   --- End of inner exception stack trace ---
+   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream.OpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamWriter.ValidateArgsAndOpenPath(String path, Boolean append, Encoding encoding, Int32 bufferSize)
+   at System.IO.StreamWriter..ctor(String path)
+   at System.IO.File.WriteAllText(String path, String contents)
+   at GitHub.Runner.Sdk.ProcessInvoker.WriteProcessOomScoreAdj(Int32 processId, Int32 oomScoreAdj)
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper] Process started with process id 754624, waiting for process exit.
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:00:38Z INFO ProcessInvokerWrapper] Finished process 754624 with exit code 0, and elapsed time 00:00:00.0180401.
+[2021-01-26 08:00:38Z INFO RSAFileKeyManager] Successfully set permissions for RSA key parameters file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:00:38Z INFO ConfigurationManager] Found a self-hosted runner group with id {1} and name {2} 1, Default
+[2021-01-26 08:00:38Z INFO CommandSettings] Arg 'name': ''
+[2021-01-26 08:00:38Z INFO CommandSettings] Flag 'unattended': 'False'
+[2021-01-26 08:00:38Z INFO PromptManager] ReadValue
+[2021-01-26 08:00:38Z INFO Terminal] WRITE: Enter the name of runner: 
+[2021-01-26 08:00:38Z INFO Terminal] WRITE: [press Enter for ijarus-Inspiron-5557] 
+[2021-01-26 08:00:38Z INFO Terminal] READ LINE
+[2021-01-26 08:00:53Z INFO Terminal] Read value: 'hosting nodeapp selfhosted '
+[2021-01-26 08:00:53Z INFO Terminal] WRITE LINE: 
+[2021-01-26 08:00:53Z INFO CommandSettings] Arg 'labels': ''
+[2021-01-26 08:00:53Z INFO CommandSettings] Flag 'unattended': 'False'
+[2021-01-26 08:00:53Z INFO PromptManager] ReadValue
+[2021-01-26 08:00:53Z INFO Terminal] WRITE: This runner will have the following labels: 'self-hosted', 'Linux', 'X64' 
+Enter any additional labels (ex. label-1,label-2): 
+[2021-01-26 08:00:53Z INFO Terminal] WRITE: [press Enter to skip] 
+[2021-01-26 08:00:53Z INFO Terminal] READ LINE
+[2021-01-26 08:00:57Z INFO Terminal] Read value: ''
+[2021-01-26 08:00:57Z INFO Terminal] WRITE LINE: 
+[2021-01-26 08:00:58Z INFO ConfigurationStore] Saving OAuth credential @ /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials
+[2021-01-26 08:00:58Z INFO ConfigurationStore] Credentials Saved.
+[2021-01-26 08:00:58Z INFO ConfigurationStore] HasCredentials()
+[2021-01-26 08:00:58Z INFO ConfigurationStore] stored True
+[2021-01-26 08:00:58Z INFO CredentialManager] GetCredentialProvider
+[2021-01-26 08:00:58Z INFO CredentialManager] Creating type OAuth
+[2021-01-26 08:00:58Z INFO CredentialManager] Creating credential type: OAuth
+[2021-01-26 08:00:58Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:00:58Z INFO RunnerServer] Establish connection with 100 seconds timeout.
+[2021-01-26 08:00:58Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-01-26 08:00:58Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2021-01-26 08:00:58Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-01-26 08:00:58Z INFO RunnerServer] Establish connection with 60 seconds timeout.
+[2021-01-26 08:00:58Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-01-26 08:00:59Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-01-26 08:00:59Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-01-26 08:00:59Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-01-26 08:01:00Z WARN GitHubActionsService] Authentication failed with status code 401.
+WWW-Authenticate: Bearer
+Strict-Transport-Security: max-age=2592000
+X-TFS-ProcessId: 1496942a-d266-477e-accd-f1203feab9c2
+ActivityId: b1aecf9a-084f-465c-b0e1-18b1ba525a97
+X-TFS-Session: 22e087b9-e50e-4c20-b497-4a95bb426a40
+X-VSS-E2EID: 28da5d07-5dd9-4e37-81c8-5e78ebacb09c
+X-VSS-SenderDeploymentId: 13a19993-c6bc-326c-afb4-32c5519f46f0
+X-TFS-ServiceError: The+user+%27System%3aPublicAccess%3baaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa%27+is+not+authorized+to+access+this+resource.
+X-VSS-S2STargetService: 0000005A-0000-8888-8000-000000000000/visualstudio.com
+X-MSEdge-Ref: Ref A: D2156C921B744134B4F8B3B5A774C7FC Ref B: SIN30EDGE0111 Ref C: 2021-01-26T08:00:59Z
+Date: Tue, 26 Jan 2021 08:00:59 GMT
+
+[2021-01-26 08:01:00Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:01:00Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:01:01Z INFO GitHubActionsService] AAD Correlation ID for this token request: Unknown
+[2021-01-26 08:01:02Z INFO CommandSettings] Arg 'work': ''
+[2021-01-26 08:01:02Z INFO CommandSettings] Flag 'unattended': 'False'
+[2021-01-26 08:01:02Z INFO PromptManager] ReadValue
+[2021-01-26 08:01:02Z INFO Terminal] WRITE: Enter name of work folder: 
+[2021-01-26 08:01:02Z INFO Terminal] WRITE: [press Enter for _work] 
+[2021-01-26 08:01:02Z INFO Terminal] READ LINE
+[2021-01-26 08:01:07Z INFO Terminal] Read value: ''
+[2021-01-26 08:01:07Z INFO PromptManager] Falling back to the default: '_work'
+[2021-01-26 08:01:07Z INFO ConfigurationStore] Saving runner settings.
+[2021-01-26 08:01:07Z INFO ConfigurationStore] Settings Saved.
+[2021-01-26 08:01:07Z INFO Terminal] WRITE LINE: 
+[2021-01-26 08:01:07Z INFO Terminal] WRITE LINE: 
+[2021-01-26 08:01:07Z INFO SystemDControlManager] Service name 'actions.runner.sjnyos-guthubaction-test.hosting nodeapp selfhosted.service' display name 'GitHub Actions Runner (sjnyos-guthubaction-test.hosting nodeapp selfhosted)' will be used for service configuration.
+[2021-01-26 08:01:07Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:01:07Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:01:07Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:01:07Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:01:07Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:01:07Z INFO UnixUtil] Which: 'chmod'
+[2021-01-26 08:01:07Z INFO UnixUtil] Location: '/usr/bin/chmod'
+[2021-01-26 08:01:07Z INFO UnixUtil] Running /usr/bin/chmod 755 "/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/svc.sh"
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/chmod'
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper]   Arguments: '755 "/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/svc.sh"'
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper]   Require exit code zero: 'True'
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 756264.
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper] Process started with process id 756264, waiting for process exit.
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:01:07Z INFO ProcessInvokerWrapper] Finished process 756264 with exit code 0, and elapsed time 00:00:00.0038311.
+[2021-01-26 08:01:07Z INFO Listener] Runner execution has finished with return code 0
