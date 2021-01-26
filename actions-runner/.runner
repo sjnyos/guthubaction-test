@@ -1,9 +1,0 @@
-﻿{
-  "agentId": 21,
-  "agentName": "hosting nodeapp selfhosted",
-  "poolId": 1,
-  "poolName": "Default",
-  "serverUrl": "https://pipelines.actions.githubusercontent.com/Iy1yJgWeRGbT6E8Z98hOdu4sLMQqlmRbl6WBAOJPdfeBzpf73t",
-  "gitHubUrl": "https://github.com/sjnyos/guthubaction-test",
-  "workFolder": "_work"
-}
