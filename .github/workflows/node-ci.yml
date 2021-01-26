@@ -24,4 +24,4 @@ jobs:
      - name: running the npm test
        run: npm test --if-present  
      - name: npm start
-       run: npm start
+       run: node app.js
