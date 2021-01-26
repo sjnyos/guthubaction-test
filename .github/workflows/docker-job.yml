@@ -6,7 +6,8 @@ on:
 
 jobs:
   main:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
+
     steps:
       -
         name: Set up QEMU
@@ -30,4 +31,18 @@ jobs:
           push: true
           tags: surajmachamasi/nodejsapp:v4
 
-
+deploynodeapp:
+needs: [test]
+runs-on: ubuntu-latest
+steps:
+- name: SSH and deploy node app
+uses: appleboy/ssh-action@master
+with:
+host: ${{ secrets.SSH_HOST }}
+username: ${{ secrets.SSH_USERNAME }}
+key: ${{ secrets.SSH_KEY }}
+port: ${{ secrets.SSH_PORT }}
+script: |
+cd ~/dashboard
+git pull origin main
+docker-compose up -d
