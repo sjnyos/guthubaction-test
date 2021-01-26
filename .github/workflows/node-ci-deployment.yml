@@ -1,4 +1,4 @@
-name: Node Github CI
+name: Nodejs Git-Action with Deployment in VM
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [10.x, 12.x]
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -47,6 +47,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
-          cd ~/dashboard
-          git pull origin main
+          mkdir ~/hello-app
+          cd ~/hello-app
+          git pull origin master
           docker-compose up -d

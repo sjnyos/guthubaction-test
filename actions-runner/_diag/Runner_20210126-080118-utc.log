@@ -121,3 +121,39 @@ Date: Tue, 26 Jan 2021 08:01:21 GMT
 [2021-01-26 08:01:23Z INFO MessageListener] Session created.
 [2021-01-26 08:01:23Z INFO Terminal] WRITE LINE: 2021-01-26 08:01:23Z: Listening for Jobs
 [2021-01-26 08:01:23Z INFO JobDispatcher] Set runner/worker IPC timeout to 30 seconds.
+[2021-01-26 08:10:28Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:10:28Z INFO MessageListener] Message '1' received from session '9d2c231f-e3c3-4c40-988f-735cc496c16a'.
+[2021-01-26 08:10:28Z INFO JobDispatcher] Job request 1 for plan 3fa450af-0d2f-46c7-93e9-87247a1feebd job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2 received.
+[2021-01-26 08:10:28Z INFO JobDispatcher] Pull OrchestrationId 3fa450af-0d2f-46c7-93e9-87247a1feebd.test._10_x from JWT claims
+[2021-01-26 08:10:28Z INFO Terminal] WRITE LINE: 2021-01-26 08:10:28Z: Running job: test (10.x)
+[2021-01-26 08:10:28Z INFO JobDispatcher] Start renew job request 1 for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:10:30Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 1/26/2021 8:20:29 AM
+[2021-01-26 08:10:30Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper]   File name: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin/Runner.Worker'
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 99 102'
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-01-26 08:10:30Z INFO ProcessInvokerWrapper] Process started with process id 788599, waiting for process exit.
+[2021-01-26 08:10:30Z INFO JobDispatcher] Send job request message to worker for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:10:30Z INFO JobNotification] Entering JobStarted Notification
+[2021-01-26 08:10:30Z INFO JobNotification] Entering StartMonitor
+[2021-01-26 08:11:30Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 1/26/2021 8:21:30 AM
+[2021-01-26 08:12:30Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 1/26/2021 8:22:30 AM
+[2021-01-26 08:13:31Z INFO JobDispatcher] Successfully renew job request 1, job is valid till 1/26/2021 8:23:31 AM
+[2021-01-26 08:13:35Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:13:35Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:13:35Z INFO ProcessInvokerWrapper] Finished process 788599 with exit code 102, and elapsed time 00:03:05.6675473.
+[2021-01-26 08:13:35Z INFO JobDispatcher] Worker finished for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2. Code: 102
+[2021-01-26 08:13:35Z INFO JobDispatcher] finish job request for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2 with result: Failed
+[2021-01-26 08:13:35Z INFO Terminal] WRITE LINE: 2021-01-26 08:13:35Z: Job test (10.x) completed with result: Failed
+[2021-01-26 08:13:35Z INFO JobDispatcher] Stop renew job request for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:13:35Z INFO JobDispatcher] job renew has been canceled, stop renew job request 1.
+[2021-01-26 08:13:35Z INFO JobNotification] Entering JobCompleted Notification
+[2021-01-26 08:13:35Z INFO JobNotification] Entering EndMonitor
