@@ -2,7 +2,7 @@ name: Nodejs Git-Action with Deployment in VM
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   test:
     runs-on: self-hosted
