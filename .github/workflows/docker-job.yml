@@ -1,4 +1,4 @@
-name: ci
+name: pushing it to Docker hub
 
 on:
   push:
@@ -30,8 +30,5 @@ jobs:
           platformS: linux/amd64, linux/arm64, linux/368
           push: true
           tags: surajmachamasi/nodejsapp:v4
-      -
-        name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
 
 
