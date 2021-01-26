@@ -228,3 +228,145 @@ Date: Tue, 26 Jan 2021 08:01:21 GMT
 [2021-01-26 08:15:25Z INFO JobDispatcher] job renew has been canceled, stop renew job request 3.
 [2021-01-26 08:15:25Z INFO JobNotification] Entering JobCompleted Notification
 [2021-01-26 08:15:25Z INFO JobNotification] Entering EndMonitor
+[2021-01-26 08:18:23Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:18:23Z INFO MessageListener] Message '5' received from session '9d2c231f-e3c3-4c40-988f-735cc496c16a'.
+[2021-01-26 08:18:23Z INFO JobDispatcher] Job request 4 for plan 2bf9649a-0623-4a91-86cf-31db86bc0690 job 43803795-0269-58f3-cbbf-e99775502c7e received.
+[2021-01-26 08:18:23Z INFO JobDispatcher] Pull OrchestrationId 2bf9649a-0623-4a91-86cf-31db86bc0690.test._12_x from JWT claims
+[2021-01-26 08:18:23Z INFO JobDispatcher] Job request 43803795-0269-58f3-cbbf-e99775502c7e processed succeed.
+[2021-01-26 08:18:23Z INFO Terminal] WRITE LINE: 2021-01-26 08:18:23Z: Running job: test (12.x)
+[2021-01-26 08:18:23Z INFO JobDispatcher] Start renew job request 4 for job 43803795-0269-58f3-cbbf-e99775502c7e.
+[2021-01-26 08:18:24Z INFO JobDispatcher] Successfully renew job request 4, job is valid till 1/26/2021 8:28:24 AM
+[2021-01-26 08:18:24Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper]   File name: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin/Runner.Worker'
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 101 105'
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-01-26 08:18:24Z INFO ProcessInvokerWrapper] Process started with process id 816531, waiting for process exit.
+[2021-01-26 08:18:24Z INFO JobDispatcher] Send job request message to worker for job 43803795-0269-58f3-cbbf-e99775502c7e.
+[2021-01-26 08:18:24Z INFO JobNotification] Entering JobStarted Notification
+[2021-01-26 08:18:24Z INFO JobNotification] Entering StartMonitor
+[2021-01-26 08:18:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:18:45Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:18:45Z INFO ProcessInvokerWrapper] Finished process 816531 with exit code 102, and elapsed time 00:00:20.4924277.
+[2021-01-26 08:18:45Z INFO JobDispatcher] Worker finished for job 43803795-0269-58f3-cbbf-e99775502c7e. Code: 102
+[2021-01-26 08:18:45Z INFO JobDispatcher] finish job request for job 43803795-0269-58f3-cbbf-e99775502c7e with result: Failed
+[2021-01-26 08:18:45Z INFO Terminal] WRITE LINE: 2021-01-26 08:18:45Z: Job test (12.x) completed with result: Failed
+[2021-01-26 08:18:45Z INFO JobDispatcher] Stop renew job request for job 43803795-0269-58f3-cbbf-e99775502c7e.
+[2021-01-26 08:18:45Z INFO JobDispatcher] job renew has been canceled, stop renew job request 4.
+[2021-01-26 08:18:45Z INFO JobNotification] Entering JobCompleted Notification
+[2021-01-26 08:18:45Z INFO JobNotification] Entering EndMonitor
+[2021-01-26 08:18:47Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:18:47Z INFO MessageListener] Message '6' received from session '9d2c231f-e3c3-4c40-988f-735cc496c16a'.
+[2021-01-26 08:18:47Z INFO JobDispatcher] Job request 5 for plan 2bf9649a-0623-4a91-86cf-31db86bc0690 job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2 received.
+[2021-01-26 08:18:47Z INFO JobDispatcher] Pull OrchestrationId 2bf9649a-0623-4a91-86cf-31db86bc0690.test._10_x from JWT claims
+[2021-01-26 08:18:47Z INFO JobDispatcher] Job request 43803795-0269-58f3-cbbf-e99775502c7e processed succeed.
+[2021-01-26 08:18:47Z INFO Terminal] WRITE LINE: 2021-01-26 08:18:47Z: Running job: test (10.x)
+[2021-01-26 08:18:47Z INFO JobDispatcher] Start renew job request 5 for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:18:47Z INFO JobDispatcher] Successfully renew job request 5, job is valid till 1/26/2021 8:28:47 AM
+[2021-01-26 08:18:47Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper]   File name: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin/Runner.Worker'
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 102 106'
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-01-26 08:18:47Z INFO ProcessInvokerWrapper] Process started with process id 817981, waiting for process exit.
+[2021-01-26 08:18:47Z INFO JobDispatcher] Send job request message to worker for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:18:47Z INFO JobNotification] Entering JobStarted Notification
+[2021-01-26 08:18:47Z INFO JobNotification] Entering StartMonitor
+[2021-01-26 08:18:50Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:18:50Z INFO MessageListener] Message '7' received from session '9d2c231f-e3c3-4c40-988f-735cc496c16a'.
+[2021-01-26 08:18:50Z INFO JobDispatcher] Job cancellation request 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2 received, cancellation timeout 5 minutes.
+[2021-01-26 08:18:50Z INFO JobDispatcher] Send job cancellation message to worker for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:18:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:18:54Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:18:54Z INFO ProcessInvokerWrapper] Finished process 817981 with exit code 103, and elapsed time 00:00:06.7174859.
+[2021-01-26 08:18:54Z INFO JobDispatcher] finish job request for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2 with result: Canceled
+[2021-01-26 08:18:54Z INFO Terminal] WRITE LINE: 2021-01-26 08:18:54Z: Job test (10.x) completed with result: Canceled
+[2021-01-26 08:18:54Z INFO JobDispatcher] Stop renew job request for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:18:54Z INFO JobDispatcher] job renew has been canceled, stop renew job request 5.
+[2021-01-26 08:18:54Z INFO JobNotification] Entering JobCompleted Notification
+[2021-01-26 08:18:54Z INFO JobNotification] Entering EndMonitor
+[2021-01-26 08:20:02Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:20:02Z INFO MessageListener] Message '8' received from session '9d2c231f-e3c3-4c40-988f-735cc496c16a'.
+[2021-01-26 08:20:02Z INFO JobDispatcher] Job request 6 for plan 16614196-dee6-4892-b45b-b79478aff282 job 43803795-0269-58f3-cbbf-e99775502c7e received.
+[2021-01-26 08:20:02Z INFO JobDispatcher] Pull OrchestrationId 16614196-dee6-4892-b45b-b79478aff282.test._12_x from JWT claims
+[2021-01-26 08:20:02Z INFO JobDispatcher] Job request 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2 processed succeed.
+[2021-01-26 08:20:02Z INFO Terminal] WRITE LINE: 2021-01-26 08:20:02Z: Running job: test (12.x)
+[2021-01-26 08:20:02Z INFO JobDispatcher] Start renew job request 6 for job 43803795-0269-58f3-cbbf-e99775502c7e.
+[2021-01-26 08:20:03Z INFO JobDispatcher] Successfully renew job request 6, job is valid till 1/26/2021 8:30:03 AM
+[2021-01-26 08:20:03Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper]   File name: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin/Runner.Worker'
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 102 106'
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-01-26 08:20:03Z INFO ProcessInvokerWrapper] Process started with process id 822310, waiting for process exit.
+[2021-01-26 08:20:03Z INFO JobDispatcher] Send job request message to worker for job 43803795-0269-58f3-cbbf-e99775502c7e.
+[2021-01-26 08:20:03Z INFO JobNotification] Entering JobStarted Notification
+[2021-01-26 08:20:03Z INFO JobNotification] Entering StartMonitor
+[2021-01-26 08:20:22Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:20:22Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:20:22Z INFO ProcessInvokerWrapper] Finished process 822310 with exit code 102, and elapsed time 00:00:18.9426980.
+[2021-01-26 08:20:22Z INFO JobDispatcher] Worker finished for job 43803795-0269-58f3-cbbf-e99775502c7e. Code: 102
+[2021-01-26 08:20:22Z INFO JobDispatcher] finish job request for job 43803795-0269-58f3-cbbf-e99775502c7e with result: Failed
+[2021-01-26 08:20:22Z INFO Terminal] WRITE LINE: 2021-01-26 08:20:22Z: Job test (12.x) completed with result: Failed
+[2021-01-26 08:20:22Z INFO JobDispatcher] Stop renew job request for job 43803795-0269-58f3-cbbf-e99775502c7e.
+[2021-01-26 08:20:22Z INFO JobDispatcher] job renew has been canceled, stop renew job request 6.
+[2021-01-26 08:20:22Z INFO JobNotification] Entering JobCompleted Notification
+[2021-01-26 08:20:22Z INFO JobNotification] Entering EndMonitor
+[2021-01-26 08:20:25Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:20:25Z INFO MessageListener] Message '9' received from session '9d2c231f-e3c3-4c40-988f-735cc496c16a'.
+[2021-01-26 08:20:25Z INFO JobDispatcher] Job request 7 for plan 16614196-dee6-4892-b45b-b79478aff282 job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2 received.
+[2021-01-26 08:20:25Z INFO JobDispatcher] Pull OrchestrationId 16614196-dee6-4892-b45b-b79478aff282.test._10_x from JWT claims
+[2021-01-26 08:20:25Z INFO JobDispatcher] Job request 43803795-0269-58f3-cbbf-e99775502c7e processed succeed.
+[2021-01-26 08:20:25Z INFO Terminal] WRITE LINE: 2021-01-26 08:20:25Z: Running job: test (10.x)
+[2021-01-26 08:20:25Z INFO JobDispatcher] Start renew job request 7 for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:20:25Z INFO JobDispatcher] Successfully renew job request 7, job is valid till 1/26/2021 8:30:25 AM
+[2021-01-26 08:20:25Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper]   File name: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin/Runner.Worker'
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper]   Arguments: 'spawnclient 102 106'
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'True'
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper]   High priority process: 'True'
+[2021-01-26 08:20:25Z INFO ProcessInvokerWrapper] Process started with process id 823748, waiting for process exit.
+[2021-01-26 08:20:25Z INFO JobDispatcher] Send job request message to worker for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:20:25Z INFO JobNotification] Entering JobStarted Notification
+[2021-01-26 08:20:25Z INFO JobNotification] Entering StartMonitor
+[2021-01-26 08:20:28Z INFO RSAFileKeyManager] Loading RSA key parameters from file /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_rsaparams
+[2021-01-26 08:20:28Z INFO MessageListener] Message '10' received from session '9d2c231f-e3c3-4c40-988f-735cc496c16a'.
+[2021-01-26 08:20:28Z INFO JobDispatcher] Job cancellation request 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2 received, cancellation timeout 5 minutes.
+[2021-01-26 08:20:28Z INFO JobDispatcher] Send job cancellation message to worker for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:20:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:20:32Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:20:32Z INFO ProcessInvokerWrapper] Finished process 823748 with exit code 103, and elapsed time 00:00:06.2845915.
+[2021-01-26 08:20:32Z INFO JobDispatcher] finish job request for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2 with result: Canceled
+[2021-01-26 08:20:32Z INFO Terminal] WRITE LINE: 2021-01-26 08:20:32Z: Job test (10.x) completed with result: Canceled
+[2021-01-26 08:20:32Z INFO JobDispatcher] Stop renew job request for job 6e18b7f8-3ecc-5512-8e6d-e7ce15e1cfb2.
+[2021-01-26 08:20:32Z INFO JobDispatcher] job renew has been canceled, stop renew job request 7.
+[2021-01-26 08:20:32Z INFO JobNotification] Entering JobCompleted Notification
+[2021-01-26 08:20:32Z INFO JobNotification] Entering EndMonitor
