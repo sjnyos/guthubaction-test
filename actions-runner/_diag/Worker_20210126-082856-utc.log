@@ -1,0 +1,3490 @@
+[2021-01-26 08:28:56Z INFO HostContext] No proxy settings were found based on environmental variables (http_proxy/https_proxy/HTTP_PROXY/HTTPS_PROXY)
+[2021-01-26 08:28:56Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:56Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:56Z INFO HostContext] Well known config file 'Credentials': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials'
+[2021-01-26 08:28:56Z INFO Worker] Version: 2.276.1
+[2021-01-26 08:28:56Z INFO Worker] Commit: 5effa808be96eae7f2e08d713426b8d056bddff1
+[2021-01-26 08:28:56Z INFO Worker] Culture: en-US
+[2021-01-26 08:28:56Z INFO Worker] UI Culture: en-US
+[2021-01-26 08:28:56Z INFO Worker] Waiting to receive the job message from the channel.
+[2021-01-26 08:28:56Z INFO Worker] Message received.
+[2021-01-26 08:28:56Z INFO Worker] Job message:
+ {
+  "fileTable": [
+    ".github/workflows/node-ci-deployment.yml"
+  ],
+  "mask": [
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    },
+    {
+      "type": "regex",
+      "value": "***"
+    }
+  ],
+  "steps": [
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/checkout",
+        "ref": "v2",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "condition": "success()",
+      "id": "82d72ad7-1be0-5bc5-0ea0-d8cdc5afe4f5",
+      "name": "actionscheckout"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "actions/setup-node",
+        "ref": "v1",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 3,
+        "file": 1,
+        "line": 14,
+        "col": 13,
+        "expr": "format('Use Node.js {0}', matrix.node-version)"
+      },
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 17,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 17,
+              "col": 9,
+              "lit": "node-version"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 17,
+              "col": 23,
+              "expr": "matrix.node-version"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "e7afcb24-a81c-59b9-a260-1028847c1bb0",
+      "name": "actionssetup-node"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "script"
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 18,
+        "col": 13,
+        "lit": "npm install and test"
+      },
+      "environment": {
+        "type": 2,
+        "file": 1,
+        "line": 24,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 24,
+              "col": 9,
+              "lit": "CI"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 24,
+              "col": 13,
+              "lit": "true"
+            }
+          }
+        ]
+      },
+      "inputs": {
+        "type": 2,
+        "map": [
+          {
+            "key": "script",
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 19,
+              "col": 12,
+              "lit": "npm install\nnpm run build\npm2 start npm -- start\n"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "9f644465-33ec-5e6c-d4dd-bb6ecfff9542",
+      "name": "run"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "docker/login-action",
+        "ref": "v1",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 25,
+        "col": 13,
+        "lit": "Login to Docker Hub"
+      },
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 28,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 28,
+              "col": 9,
+              "lit": "username"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 28,
+              "col": 19,
+              "expr": "secrets.DOCKERHUB_USERNAME"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 29,
+              "col": 9,
+              "lit": "password"
+            },
+            "value": {
+              "type": 3,
+              "file": 1,
+              "line": 29,
+              "col": 19,
+              "expr": "secrets.DOCKERHUB_TOKEN"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "35405513-4b0d-526f-1b52-029fe6e9ffa9",
+      "name": "dockerlogin-action"
+    },
+    {
+      "type": "action",
+      "reference": {
+        "type": "repository",
+        "name": "docker/build-push-action",
+        "ref": "v2",
+        "repositoryType": "GitHub",
+        "path": ""
+      },
+      "displayNameToken": {
+        "type": 0,
+        "file": 1,
+        "line": 30,
+        "col": 13,
+        "lit": "Build and push"
+      },
+      "contextName": "docker_build",
+      "inputs": {
+        "type": 2,
+        "file": 1,
+        "line": 34,
+        "col": 9,
+        "map": [
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 34,
+              "col": 9,
+              "lit": "context"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 34,
+              "col": 18,
+              "lit": "./"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 35,
+              "col": 9,
+              "lit": "file"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 35,
+              "col": 15,
+              "lit": "./Dockerfile"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 36,
+              "col": 9,
+              "lit": "push"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 36,
+              "col": 15,
+              "lit": "true"
+            }
+          },
+          {
+            "key": {
+              "type": 0,
+              "file": 1,
+              "line": 37,
+              "col": 9,
+              "lit": "tags"
+            },
+            "value": {
+              "type": 0,
+              "file": 1,
+              "line": 37,
+              "col": 15,
+              "lit": "***/node-hello:v1"
+            }
+          }
+        ]
+      },
+      "condition": "success()",
+      "id": "f24cd8b3-3602-5933-3ddd-492bff748612",
+      "name": "dockerbuild-push-action"
+    }
+  ],
+  "variables": {
+    "DOCKERHUB_TOKEN": {
+      "value": "***",
+      "isSecret": true
+    },
+    "DOCKERHUB_USERNAME": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.runnerGroupName": {
+      "value": "Default"
+    },
+    "github_token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.github.token": {
+      "value": "***",
+      "isSecret": true
+    },
+    "system.isScheduled": {
+      "value": "False"
+    },
+    "system": {
+      "value": "actions"
+    },
+    "system.hosttype": {
+      "value": "actions"
+    },
+    "system.servertype": {
+      "value": "Hosted"
+    },
+    "system.culture": {
+      "value": "en-US"
+    },
+    "system.collectionId": {
+      "value": "bc1824f5-3924-42be-bba1-423d18c48677"
+    },
+    "system.collectionUri": {
+      "value": "https://pipelines.actions.githubusercontent.com/Iy1yJgWeRGbT6E8Z98hOdu4sLMQqlmRbl6WBAOJPdfeBzpf73t/"
+    },
+    "system.taskDefinitionsUri": {
+      "value": "https://pipelines.actions.githubusercontent.com/Iy1yJgWeRGbT6E8Z98hOdu4sLMQqlmRbl6WBAOJPdfeBzpf73t/"
+    },
+    "system.pipelineStartTime": {
+      "value": "2021-01-26 08:28:52+00:00"
+    },
+    "system.definitionId": {
+      "value": "3"
+    },
+    "system.runner.lowdiskspacethreshold": {
+      "value": "100"
+    },
+    "DistributedTask.NewActionMetadata": {
+      "value": "true"
+    },
+    "DistributedTask.UseContextNameForGITHUBACTION": {
+      "value": "true"
+    },
+    "system.teamProjectId": {
+      "value": "00000000-0000-0000-0000-000000000000"
+    },
+    "build.buildId": {
+      "value": "26"
+    },
+    "build.containerId": {
+      "value": "968557"
+    },
+    "system.definitionName": {
+      "value": "guthubaction-test"
+    },
+    "system.planId": {
+      "value": "497d03ab-4ada-40b1-8392-eb416ecb119f"
+    },
+    "system.timelineId": {
+      "value": "497d03ab-4ada-40b1-8392-eb416ecb119f"
+    },
+    "system.stageDisplayName": {
+      "value": "__default"
+    },
+    "system.stageId": {
+      "value": "96ac2280-8cb4-5df5-99de-dd2da759617d"
+    },
+    "system.stageName": {
+      "value": "__default"
+    },
+    "system.stageAttempt": {
+      "value": "1"
+    },
+    "system.phaseDisplayName": {
+      "value": "test"
+    },
+    "system.phaseId": {
+      "value": "859b8d9a-8fd6-5a5c-6f5e-f84f1990894e"
+    },
+    "system.phaseName": {
+      "value": "test"
+    },
+    "system.phaseAttempt": {
+      "value": "1"
+    },
+    "system.jobIdentifier": {
+      "value": "test._12_x"
+    },
+    "system.jobAttempt": {
+      "value": "1"
+    },
+    "System.JobPositionInPhase": {
+      "value": "2"
+    },
+    "System.TotalJobsInPhase": {
+      "value": "2"
+    },
+    "system.github.job": {
+      "value": "test"
+    },
+    "system.jobDisplayName": {
+      "value": "test (12.x)"
+    },
+    "system.jobId": {
+      "value": "43803795-0269-58f3-cbbf-e99775502c7e"
+    },
+    "system.jobName": {
+      "value": "_12_x"
+    }
+  },
+  "messageType": "PipelineAgentJobRequest",
+  "plan": {
+    "scopeIdentifier": "00000000-0000-0000-0000-000000000000",
+    "planType": "Actions",
+    "version": 12,
+    "planId": "497d03ab-4ada-40b1-8392-eb416ecb119f",
+    "planGroup": "Actions:00000000-0000-0000-0000-000000000000:1",
+    "artifactUri": "vstfs:///Build/Build/26",
+    "artifactLocation": null,
+    "definition": {
+      "_links": {},
+      "id": 3,
+      "name": "guthubaction-test"
+    },
+    "owner": {
+      "_links": {},
+      "id": 3,
+      "name": "sjnyos"
+    }
+  },
+  "timeline": {
+    "id": "497d03ab-4ada-40b1-8392-eb416ecb119f",
+    "changeId": 8,
+    "location": null
+  },
+  "jobId": "43803795-0269-58f3-cbbf-e99775502c7e",
+  "jobDisplayName": "test (12.x)",
+  "jobName": "_12_x",
+  "requestId": 10,
+  "lockedUntil": "0001-01-01T00:00:00",
+  "resources": {
+    "endpoints": [
+      {
+        "data": {
+          "ServerId": "bc1824f5-3924-42be-bba1-423d18c48677",
+          "ServerName": "Iy1yJgWeRGbT6E8Z98hOdu4sLMQqlmRbl6WBAOJPdfeBzpf73t",
+          "CacheServerUrl": "https://artifactcache.actions.githubusercontent.com/Iy1yJgWeRGbT6E8Z98hOdu4sLMQqlmRbl6WBAOJPdfeBzpf73t/"
+        },
+        "name": "SystemVssConnection",
+        "url": "https://pipelines.actions.githubusercontent.com/Iy1yJgWeRGbT6E8Z98hOdu4sLMQqlmRbl6WBAOJPdfeBzpf73t/",
+        "authorization": {
+          "parameters": {
+            "AccessToken": ***
+          },
+          "scheme": "OAuth"
+        },
+        "isShared": false,
+        "isReady": true
+      }
+    ]
+  },
+  "contextData": {
+    "github": {
+      "t": 2,
+      "d": [
+        {
+          "k": "ref",
+          "v": "refs/heads/master"
+        },
+        {
+          "k": "sha",
+          "v": "5b0d660e7a8d0380efca036345bdaaef1c9aab53"
+        },
+        {
+          "k": "repository",
+          "v": "sjnyos/guthubaction-test"
+        },
+        {
+          "k": "repository_owner",
+          "v": "sjnyos"
+        },
+        {
+          "k": "repositoryUrl",
+          "v": "git://github.com/sjnyos/guthubaction-test.git"
+        },
+        {
+          "k": "run_id",
+          "v": "511583816"
+        },
+        {
+          "k": "run_number",
+          "v": "5"
+        },
+        {
+          "k": "retention_days",
+          "v": "90"
+        },
+        {
+          "k": "actor",
+          "v": "sjnyos"
+        },
+        {
+          "k": "workflow",
+          "v": "Nodejs Git-Action with Deployment in VM"
+        },
+        {
+          "k": "head_ref",
+          "v": ""
+        },
+        {
+          "k": "base_ref",
+          "v": ""
+        },
+        {
+          "k": "event_name",
+          "v": "push"
+        },
+        {
+          "k": "event",
+          "v": {
+            "t": 2,
+            "d": [
+              {
+                "k": "after",
+                "v": "5b0d660e7a8d0380efca036345bdaaef1c9aab53"
+              },
+              {
+                "k": "base_ref",
+                "v": null
+              },
+              {
+                "k": "before",
+                "v": "b7a9ef939e44b6fdc209c42bb5d2e391a1bbc6d4"
+              },
+              {
+                "k": "commits",
+                "v": {
+                  "t": 1,
+                  "a": [
+                    {
+                      "t": 2,
+                      "d": [
+                        {
+                          "k": "author",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "wrksuraj@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "ijarus"
+                              },
+                              {
+                                "k": "username",
+                                "v": "sjnyos"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "committer",
+                          "v": {
+                            "t": 2,
+                            "d": [
+                              {
+                                "k": "email",
+                                "v": "wrksuraj@gmail.com"
+                              },
+                              {
+                                "k": "name",
+                                "v": "ijarus"
+                              },
+                              {
+                                "k": "username",
+                                "v": "sjnyos"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "k": "distinct",
+                          "v": true
+                        },
+                        {
+                          "k": "id",
+                          "v": "5b0d660e7a8d0380efca036345bdaaef1c9aab53"
+                        },
+                        {
+                          "k": "message",
+                          "v": "fixing the branchname"
+                        },
+                        {
+                          "k": "timestamp",
+                          "v": "2021-01-26T14:13:26+05:45"
+                        },
+                        {
+                          "k": "tree_id",
+                          "v": "f3aaa5d69e9adee823adb5f0d2f6f7090a5b9922"
+                        },
+                        {
+                          "k": "url",
+                          "v": "https://github.com/sjnyos/guthubaction-test/commit/5b0d660e7a8d0380efca036345bdaaef1c9aab53"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "compare",
+                "v": "https://github.com/sjnyos/guthubaction-test/compare/b7a9ef939e44...5b0d660e7a8d"
+              },
+              {
+                "k": "created",
+                "v": false
+              },
+              {
+                "k": "deleted",
+                "v": false
+              },
+              {
+                "k": "forced",
+                "v": false
+              },
+              {
+                "k": "head_commit",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "author",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "wrksuraj@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "ijarus"
+                          },
+                          {
+                            "k": "username",
+                            "v": "sjnyos"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "committer",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "email",
+                            "v": "wrksuraj@gmail.com"
+                          },
+                          {
+                            "k": "name",
+                            "v": "ijarus"
+                          },
+                          {
+                            "k": "username",
+                            "v": "sjnyos"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "distinct",
+                      "v": true
+                    },
+                    {
+                      "k": "id",
+                      "v": "5b0d660e7a8d0380efca036345bdaaef1c9aab53"
+                    },
+                    {
+                      "k": "message",
+                      "v": "fixing the branchname"
+                    },
+                    {
+                      "k": "timestamp",
+                      "v": "2021-01-26T14:13:26+05:45"
+                    },
+                    {
+                      "k": "tree_id",
+                      "v": "f3aaa5d69e9adee823adb5f0d2f6f7090a5b9922"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/sjnyos/guthubaction-test/commit/5b0d660e7a8d0380efca036345bdaaef1c9aab53"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "pusher",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "email",
+                      "v": "53510376+sjnyos@users.noreply.github.com"
+                    },
+                    {
+                      "k": "name",
+                      "v": "sjnyos"
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "ref",
+                "v": "refs/heads/master"
+              },
+              {
+                "k": "repository",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "archive_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/{archive_format}{/ref}"
+                    },
+                    {
+                      "k": "archived",
+                      "v": false
+                    },
+                    {
+                      "k": "assignees_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/assignees{/user}"
+                    },
+                    {
+                      "k": "blobs_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/git/blobs{/sha}"
+                    },
+                    {
+                      "k": "branches_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/branches{/branch}"
+                    },
+                    {
+                      "k": "clone_url",
+                      "v": "https://github.com/sjnyos/guthubaction-test.git"
+                    },
+                    {
+                      "k": "collaborators_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/collaborators{/collaborator}"
+                    },
+                    {
+                      "k": "comments_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/comments{/number}"
+                    },
+                    {
+                      "k": "commits_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/commits{/sha}"
+                    },
+                    {
+                      "k": "compare_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/compare/{base}...{head}"
+                    },
+                    {
+                      "k": "contents_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/contents/{+path}"
+                    },
+                    {
+                      "k": "contributors_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/contributors"
+                    },
+                    {
+                      "k": "created_at",
+                      "v": 1611640269.0
+                    },
+                    {
+                      "k": "default_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "deployments_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/deployments"
+                    },
+                    {
+                      "k": "description",
+                      "v": null
+                    },
+                    {
+                      "k": "disabled",
+                      "v": false
+                    },
+                    {
+                      "k": "downloads_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/downloads"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/events"
+                    },
+                    {
+                      "k": "fork",
+                      "v": false
+                    },
+                    {
+                      "k": "forks",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "forks_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/forks"
+                    },
+                    {
+                      "k": "full_name",
+                      "v": "sjnyos/guthubaction-test"
+                    },
+                    {
+                      "k": "git_commits_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/git/commits{/sha}"
+                    },
+                    {
+                      "k": "git_refs_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/git/refs{/sha}"
+                    },
+                    {
+                      "k": "git_tags_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/git/tags{/sha}"
+                    },
+                    {
+                      "k": "git_url",
+                      "v": "git://github.com/sjnyos/guthubaction-test.git"
+                    },
+                    {
+                      "k": "has_downloads",
+                      "v": true
+                    },
+                    {
+                      "k": "has_issues",
+                      "v": true
+                    },
+                    {
+                      "k": "has_pages",
+                      "v": false
+                    },
+                    {
+                      "k": "has_projects",
+                      "v": true
+                    },
+                    {
+                      "k": "has_wiki",
+                      "v": true
+                    },
+                    {
+                      "k": "homepage",
+                      "v": null
+                    },
+                    {
+                      "k": "hooks_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/hooks"
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/sjnyos/guthubaction-test"
+                    },
+                    {
+                      "k": "id",
+                      "v": 332985723.0
+                    },
+                    {
+                      "k": "issue_comment_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/issues/comments{/number}"
+                    },
+                    {
+                      "k": "issue_events_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/issues/events{/number}"
+                    },
+                    {
+                      "k": "issues_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/issues{/number}"
+                    },
+                    {
+                      "k": "keys_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/keys{/key_id}"
+                    },
+                    {
+                      "k": "labels_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/labels{/name}"
+                    },
+                    {
+                      "k": "language",
+                      "v": "C"
+                    },
+                    {
+                      "k": "languages_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/languages"
+                    },
+                    {
+                      "k": "license",
+                      "v": null
+                    },
+                    {
+                      "k": "master_branch",
+                      "v": "master"
+                    },
+                    {
+                      "k": "merges_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/merges"
+                    },
+                    {
+                      "k": "milestones_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/milestones{/number}"
+                    },
+                    {
+                      "k": "mirror_url",
+                      "v": null
+                    },
+                    {
+                      "k": "name",
+                      "v": "guthubaction-test"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDEwOlJlcG9zaXRvcnkzMzI5ODU3MjM="
+                    },
+                    {
+                      "k": "notifications_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/notifications{?since,all,participating}"
+                    },
+                    {
+                      "k": "open_issues",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "open_issues_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "owner",
+                      "v": {
+                        "t": 2,
+                        "d": [
+                          {
+                            "k": "avatar_url",
+                            "v": "https://avatars.githubusercontent.com/u/53510376?v=4"
+                          },
+                          {
+                            "k": "email",
+                            "v": "53510376+sjnyos@users.noreply.github.com"
+                          },
+                          {
+                            "k": "events_url",
+                            "v": "https://api.github.com/users/sjnyos/events{/privacy}"
+                          },
+                          {
+                            "k": "followers_url",
+                            "v": "https://api.github.com/users/sjnyos/followers"
+                          },
+                          {
+                            "k": "following_url",
+                            "v": "https://api.github.com/users/sjnyos/following{/other_user}"
+                          },
+                          {
+                            "k": "gists_url",
+                            "v": "https://api.github.com/users/sjnyos/gists{/gist_id}"
+                          },
+                          {
+                            "k": "gravatar_id",
+                            "v": ""
+                          },
+                          {
+                            "k": "html_url",
+                            "v": "https://github.com/sjnyos"
+                          },
+                          {
+                            "k": "id",
+                            "v": 53510376.0
+                          },
+                          {
+                            "k": "login",
+                            "v": "sjnyos"
+                          },
+                          {
+                            "k": "name",
+                            "v": "sjnyos"
+                          },
+                          {
+                            "k": "node_id",
+                            "v": "MDQ6VXNlcjUzNTEwMzc2"
+                          },
+                          {
+                            "k": "organizations_url",
+                            "v": "https://api.github.com/users/sjnyos/orgs"
+                          },
+                          {
+                            "k": "received_events_url",
+                            "v": "https://api.github.com/users/sjnyos/received_events"
+                          },
+                          {
+                            "k": "repos_url",
+                            "v": "https://api.github.com/users/sjnyos/repos"
+                          },
+                          {
+                            "k": "site_admin",
+                            "v": false
+                          },
+                          {
+                            "k": "starred_url",
+                            "v": "https://api.github.com/users/sjnyos/starred{/owner}{/repo}"
+                          },
+                          {
+                            "k": "subscriptions_url",
+                            "v": "https://api.github.com/users/sjnyos/subscriptions"
+                          },
+                          {
+                            "k": "type",
+                            "v": "User"
+                          },
+                          {
+                            "k": "url",
+                            "v": "https://api.github.com/users/sjnyos"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "k": "private",
+                      "v": false
+                    },
+                    {
+                      "k": "pulls_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/pulls{/number}"
+                    },
+                    {
+                      "k": "pushed_at",
+                      "v": 1611649728.0
+                    },
+                    {
+                      "k": "releases_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/releases{/id}"
+                    },
+                    {
+                      "k": "size",
+                      "v": 258.0
+                    },
+                    {
+                      "k": "ssh_url",
+                      "v": "git@github.com:sjnyos/guthubaction-test.git"
+                    },
+                    {
+                      "k": "stargazers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_count",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "stargazers_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/stargazers"
+                    },
+                    {
+                      "k": "statuses_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/statuses/{sha}"
+                    },
+                    {
+                      "k": "subscribers_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/subscribers"
+                    },
+                    {
+                      "k": "subscription_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/subscription"
+                    },
+                    {
+                      "k": "svn_url",
+                      "v": "https://github.com/sjnyos/guthubaction-test"
+                    },
+                    {
+                      "k": "tags_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/tags"
+                    },
+                    {
+                      "k": "teams_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/teams"
+                    },
+                    {
+                      "k": "trees_url",
+                      "v": "https://api.github.com/repos/sjnyos/guthubaction-test/git/trees{/sha}"
+                    },
+                    {
+                      "k": "updated_at",
+                      "v": "2021-01-26T08:25:52Z"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://github.com/sjnyos/guthubaction-test"
+                    },
+                    {
+                      "k": "watchers",
+                      "v": 0.0
+                    },
+                    {
+                      "k": "watchers_count",
+                      "v": 0.0
+                    }
+                  ]
+                }
+              },
+              {
+                "k": "sender",
+                "v": {
+                  "t": 2,
+                  "d": [
+                    {
+                      "k": "avatar_url",
+                      "v": "https://avatars.githubusercontent.com/u/53510376?v=4"
+                    },
+                    {
+                      "k": "events_url",
+                      "v": "https://api.github.com/users/sjnyos/events{/privacy}"
+                    },
+                    {
+                      "k": "followers_url",
+                      "v": "https://api.github.com/users/sjnyos/followers"
+                    },
+                    {
+                      "k": "following_url",
+                      "v": "https://api.github.com/users/sjnyos/following{/other_user}"
+                    },
+                    {
+                      "k": "gists_url",
+                      "v": "https://api.github.com/users/sjnyos/gists{/gist_id}"
+                    },
+                    {
+                      "k": "gravatar_id",
+                      "v": ""
+                    },
+                    {
+                      "k": "html_url",
+                      "v": "https://github.com/sjnyos"
+                    },
+                    {
+                      "k": "id",
+                      "v": 53510376.0
+                    },
+                    {
+                      "k": "login",
+                      "v": "sjnyos"
+                    },
+                    {
+                      "k": "node_id",
+                      "v": "MDQ6VXNlcjUzNTEwMzc2"
+                    },
+                    {
+                      "k": "organizations_url",
+                      "v": "https://api.github.com/users/sjnyos/orgs"
+                    },
+                    {
+                      "k": "received_events_url",
+                      "v": "https://api.github.com/users/sjnyos/received_events"
+                    },
+                    {
+                      "k": "repos_url",
+                      "v": "https://api.github.com/users/sjnyos/repos"
+                    },
+                    {
+                      "k": "site_admin",
+                      "v": false
+                    },
+                    {
+                      "k": "starred_url",
+                      "v": "https://api.github.com/users/sjnyos/starred{/owner}{/repo}"
+                    },
+                    {
+                      "k": "subscriptions_url",
+                      "v": "https://api.github.com/users/sjnyos/subscriptions"
+                    },
+                    {
+                      "k": "type",
+                      "v": "User"
+                    },
+                    {
+                      "k": "url",
+                      "v": "https://api.github.com/users/sjnyos"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "k": "server_url",
+          "v": "https://github.com"
+        },
+        {
+          "k": "api_url",
+          "v": "https://api.github.com"
+        },
+        {
+          "k": "graphql_url",
+          "v": "https://api.github.com/graphql"
+        }
+      ]
+    },
+    "needs": {
+      "t": 2
+    },
+    "matrix": {
+      "t": 2,
+      "d": [
+        {
+          "k": "node-version",
+          "v": "12.x"
+        }
+      ]
+    },
+    "strategy": {
+      "t": 2,
+      "d": [
+        {
+          "k": "fail-fast",
+          "v": true
+        },
+        {
+          "k": "job-index",
+          "v": 1.0
+        },
+        {
+          "k": "job-total",
+          "v": 2.0
+        },
+        {
+          "k": "max-parallel",
+          "v": 2.0
+        }
+      ]
+    }
+  }
+}
+[2021-01-26 08:28:56Z INFO JobRunner] Job ID 43803795-0269-58f3-cbbf-e99775502c7e
+[2021-01-26 08:28:56Z INFO JobRunner] Creating job server with URL: https://pipelines.actions.githubusercontent.com/Iy1yJgWeRGbT6E8Z98hOdu4sLMQqlmRbl6WBAOJPdfeBzpf73t/
+[2021-01-26 08:28:56Z INFO GitHubActionsService] Starting operation Location.GetConnectionData
+[2021-01-26 08:28:57Z INFO Worker] Listening for cancel message from the channel.
+[2021-01-26 08:28:57Z INFO Worker] Waiting for the job to complete or for a cancel message from the channel.
+[2021-01-26 08:28:58Z INFO GitHubActionsService] Finished operation Location.GetConnectionData
+[2021-01-26 08:28:58Z INFO JobServerQueue] Start process web console line queue.
+[2021-01-26 08:28:58Z INFO JobServerQueue] Start process file upload queue.
+[2021-01-26 08:28:58Z INFO JobServerQueue] Start process timeline update queue.
+[2021-01-26 08:28:58Z INFO ExecutionContext] Initialize GitHub context
+[2021-01-26 08:28:58Z INFO ExecutionContext] Initialize Env context
+[2021-01-26 08:28:58Z INFO ConfigurationStore] currentAssemblyLocation: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin/Runner.Worker.dll
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO ConfigurationStore] binPath: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO ConfigurationStore] RootFolder: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known config file 'Runner': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.runner'
+[2021-01-26 08:28:58Z INFO ConfigurationStore] ConfigFilePath: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.runner
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known config file 'Credentials': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials'
+[2021-01-26 08:28:58Z INFO ConfigurationStore] CredFilePath: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known config file 'MigratedCredentials': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_migrated'
+[2021-01-26 08:28:58Z INFO ConfigurationStore] MigratedCredFilePath: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials_migrated
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known config file 'Service': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.service'
+[2021-01-26 08:28:58Z INFO ConfigurationStore] ServiceConfigFilePath: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.service
+[2021-01-26 08:28:58Z INFO ConfigurationStore] Read setting file: 308 chars
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Diag': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_diag'
+[2021-01-26 08:28:58Z INFO JobRunner] Starting the job execution context.
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:58Z INFO JobRunner] Validating directory permissions for: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Tools': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_tool'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Temp': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_temp'
+[2021-01-26 08:28:58Z INFO JobRunner] Getting job extension.
+[2021-01-26 08:28:58Z INFO JobRunner] Initialize job. Getting all job steps.
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Diag': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_diag'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known config file 'Credentials': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.credentials'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known config file 'SetupInfo': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/.setup_info'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:58Z INFO PipelineDirectoryManager] Loading tracking config if exists: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_PipelineMapping/sjnyos/guthubaction-test/PipelineFolder.json
+[2021-01-26 08:28:58Z INFO PipelineDirectoryManager] Updating job run properties.
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:58Z INFO JobExtension] Downloading actions
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:58Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:28:59Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:59Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:59Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:59Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:28:59Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:28:59Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:28:59Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:28:59Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:28:59Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/checkout/tarball/5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f' into /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_7de2f425-f703-4fbc-b957-8e551aee1194/793f41fc-cb58-4dcc-a073-31385e3464dc.tar.gz.
+[2021-01-26 08:28:59Z INFO JobServerQueue] Try to append 1 batches web console lines for record '86ed1515-13af-4e33-9b9b-b3045495a7b9', success rate: 1/1.
+[2021-01-26 08:29:00Z INFO JobServerQueue] Try to append 1 batches web console lines for record '86ed1515-13af-4e33-9b9b-b3045495a7b9', success rate: 1/1.
+[2021-01-26 08:29:02Z INFO ActionManager] Which: 'tar'
+[2021-01-26 08:29:02Z INFO ActionManager] Location: '/usr/bin/tar'
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_7de2f425-f703-4fbc-b957-8e551aee1194/793f41fc-cb58-4dcc-a073-31385e3464dc.tar.gz"'
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_7de2f425-f703-4fbc-b957-8e551aee1194/_staging'
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 853194.
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper] Process started with process id 853194, waiting for process exit.
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:02Z INFO ProcessInvokerWrapper] Finished process 853194 with exit code 0, and elapsed time 00:00:00.0414173.
+[2021-01-26 08:29:02Z INFO ActionManager] Finished getting action repository.
+[2021-01-26 08:29:02Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:02Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:02Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:02Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:02Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:02Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:02Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:02Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:02Z INFO ActionManager] Save archive 'https://api.github.com/repos/actions/setup-node/tarball/56899e050abffc08c2b3b61f3ec6a79a9dc3223d' into /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_70d1ddb4-ae67-4484-b8a1-75a9570860c0/0f0f1a53-0e7f-464b-9836-424cb6a5eaf1.tar.gz.
+[2021-01-26 08:29:03Z INFO JobServerQueue] Try to append 1 batches web console lines for record '86ed1515-13af-4e33-9b9b-b3045495a7b9', success rate: 1/1.
+[2021-01-26 08:29:05Z INFO ActionManager] Which: 'tar'
+[2021-01-26 08:29:05Z INFO ActionManager] Location: '/usr/bin/tar'
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_70d1ddb4-ae67-4484-b8a1-75a9570860c0/0f0f1a53-0e7f-464b-9836-424cb6a5eaf1.tar.gz"'
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_70d1ddb4-ae67-4484-b8a1-75a9570860c0/_staging'
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 853383.
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper] Process started with process id 853383, waiting for process exit.
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:05Z INFO ProcessInvokerWrapper] Finished process 853383 with exit code 0, and elapsed time 00:00:00.0312770.
+[2021-01-26 08:29:05Z INFO ActionManager] Finished getting action repository.
+[2021-01-26 08:29:05Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:05Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:05Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:05Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:05Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:05Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:05Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:05Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:05Z INFO ActionManager] Save archive 'https://api.github.com/repos/docker/login-action/tarball/f3364599c6aa293cdc2b8391b1b56d0c30e45c8a' into /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_38115d1b-524a-4f3c-973f-2ffcc4258ac9/0aa45838-d3f7-4c3c-8251-64dece280091.tar.gz.
+[2021-01-26 08:29:05Z INFO JobServerQueue] Try to append 1 batches web console lines for record '86ed1515-13af-4e33-9b9b-b3045495a7b9', success rate: 1/1.
+[2021-01-26 08:29:06Z INFO ActionManager] Which: 'tar'
+[2021-01-26 08:29:06Z INFO ActionManager] Location: '/usr/bin/tar'
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_38115d1b-524a-4f3c-973f-2ffcc4258ac9/0aa45838-d3f7-4c3c-8251-64dece280091.tar.gz"'
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_38115d1b-524a-4f3c-973f-2ffcc4258ac9/_staging'
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 853411.
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper] Process started with process id 853411, waiting for process exit.
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:06Z INFO ProcessInvokerWrapper] Finished process 853411 with exit code 0, and elapsed time 00:00:00.0132965.
+[2021-01-26 08:29:06Z INFO ActionManager] Finished getting action repository.
+[2021-01-26 08:29:06Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:06Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:06Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:06Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:06Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:06Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:06Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:06Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:06Z INFO ActionManager] Save archive 'https://api.github.com/repos/docker/build-push-action/tarball/4a531fa5a603bab87dfa56578bd82b28508c9547' into /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_9768e474-5ad8-4afb-ad9b-743844bbf7e4/1b51c7b2-dd80-4c3b-8ffc-667eadcee394.tar.gz.
+[2021-01-26 08:29:07Z INFO JobServerQueue] Try to append 1 batches web console lines for record '86ed1515-13af-4e33-9b9b-b3045495a7b9', success rate: 1/1.
+[2021-01-26 08:29:08Z INFO ActionManager] Which: 'tar'
+[2021-01-26 08:29:08Z INFO ActionManager] Location: '/usr/bin/tar'
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper]   File name: '/usr/bin/tar'
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper]   Arguments: '-xzf "/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_9768e474-5ad8-4afb-ad9b-743844bbf7e4/1b51c7b2-dd80-4c3b-8ffc-667eadcee394.tar.gz"'
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/_temp_9768e474-5ad8-4afb-ad9b-743844bbf7e4/_staging'
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 853561.
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper] Process started with process id 853561, waiting for process exit.
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:08Z INFO ProcessInvokerWrapper] Finished process 853561 with exit code 0, and elapsed time 00:00:00.0402765.
+[2021-01-26 08:29:08Z INFO ActionManager] Finished getting action repository.
+[2021-01-26 08:29:08Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:08Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:08Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:08Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:08Z INFO ActionManifestManager] Load schema file with definitions: [
+  "null",
+  "boolean",
+  "number",
+  "string",
+  "sequence",
+  "mapping",
+  "any",
+  "action-root",
+  "inputs",
+  "input",
+  "outputs",
+  "outputs-attributes",
+  "runs",
+  "container-runs",
+  "container-runs-args",
+  "container-runs-env",
+  "node12-runs",
+  "plugin-runs",
+  "composite-runs",
+  "composite-steps",
+  "composite-step",
+  "container-runs-context",
+  "output-value",
+  "input-default-context",
+  "non-empty-string",
+  "string-steps-context",
+  "step-env"
+]
+[2021-01-26 08:29:08Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:08Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:08Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:08Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-01-26 08:29:09Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManager] Load action that reference repository from '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/actions/checkout/v2'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-01-26 08:29:09Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-01-26 08:29:09Z INFO ActionManager] Action node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Ignore action property author.
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Setup Node.js environment",
+  "description": "Setup a Node.js environment and add it to the PATH, additionally providing proxy support",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "always-auth"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "node-version"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 14,
+          "lit": "10.x"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "registry-url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "scope"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 16,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": {
+    "version": "The version property will not be supported after October 1, 2019. Use node-version instead"
+  }
+}
+[2021-01-26 08:29:09Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManager] Load action that reference repository from '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/actions/setup-node/v1'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Ignore action property author.
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Setup Node.js environment",
+  "description": "Setup a Node.js environment and add it to the PATH, additionally providing proxy support",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 5,
+          "col": 3,
+          "lit": "always-auth"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 8,
+          "col": 3,
+          "lit": "node-version"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 10,
+          "col": 14,
+          "lit": "10.x"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 11,
+          "col": 3,
+          "lit": "registry-url"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 13,
+          "col": 3,
+          "lit": "scope"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 16,
+          "col": 3,
+          "lit": "version"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": null,
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": {
+    "version": "The version property will not be supported after October 1, 2019. Use node-version instead"
+  }
+}
+[2021-01-26 08:29:09Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-01-26 08:29:09Z INFO ActionManager] Action node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO ActionManager] Action post node.js file: N/A.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Ignore action property author.
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Ignore action property branding.
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 19,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 21,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-01-26 08:29:09Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManager] Load action that reference repository from '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/docker/login-action/v1'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Ignore action property author.
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Ignore action property branding.
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Docker Login",
+  "description": "GitHub Action to login against a Docker registry",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 10,
+          "col": 3,
+          "lit": "registry"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 13,
+          "col": 3,
+          "lit": "username"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 16,
+          "col": 3,
+          "lit": "password"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 4,
+          "line": 19,
+          "col": 3,
+          "lit": "logout"
+        },
+        "value": {
+          "type": 0,
+          "file": 4,
+          "line": 21,
+          "col": 14,
+          "lit": "true"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-01-26 08:29:09Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-01-26 08:29:09Z INFO ActionManager] Action node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Ignore action property author.
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Ignore action property branding.
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Build and push Docker images",
+  "description": "Build and push Docker images with Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 10,
+          "col": 3,
+          "lit": "builder"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 13,
+          "col": 3,
+          "lit": "context"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 16,
+          "col": 3,
+          "lit": "file"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 19,
+          "col": 3,
+          "lit": "build-args"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 22,
+          "col": 3,
+          "lit": "labels"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 25,
+          "col": 3,
+          "lit": "tags"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 28,
+          "col": 3,
+          "lit": "pull"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 31,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 32,
+          "col": 3,
+          "lit": "target"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 35,
+          "col": 3,
+          "lit": "allow"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 38,
+          "col": 3,
+          "lit": "no-cache"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 41,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 42,
+          "col": 3,
+          "lit": "platforms"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 45,
+          "col": 3,
+          "lit": "load"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 48,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 49,
+          "col": 3,
+          "lit": "push"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 52,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 53,
+          "col": 3,
+          "lit": "outputs"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 56,
+          "col": 3,
+          "lit": "cache-from"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 59,
+          "col": 3,
+          "lit": "cache-to"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 62,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 65,
+          "col": 3,
+          "lit": "github-token"
+        },
+        "value": {
+          "type": 3,
+          "file": 5,
+          "line": 67,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 69,
+          "col": 3,
+          "lit": "ssh"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-01-26 08:29:09Z INFO ActionManager] Action node.js file: dist/index.js, no more preparation.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManager] Load action that reference repository from '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/docker/build-push-action/v2'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Ignore action property author.
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Ignore action property branding.
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Build and push Docker images",
+  "description": "Build and push Docker images with Buildx",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 10,
+          "col": 3,
+          "lit": "builder"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 13,
+          "col": 3,
+          "lit": "context"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 16,
+          "col": 3,
+          "lit": "file"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 19,
+          "col": 3,
+          "lit": "build-args"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 22,
+          "col": 3,
+          "lit": "labels"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 25,
+          "col": 3,
+          "lit": "tags"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 28,
+          "col": 3,
+          "lit": "pull"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 31,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 32,
+          "col": 3,
+          "lit": "target"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 35,
+          "col": 3,
+          "lit": "allow"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 38,
+          "col": 3,
+          "lit": "no-cache"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 41,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 42,
+          "col": 3,
+          "lit": "platforms"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 45,
+          "col": 3,
+          "lit": "load"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 48,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 49,
+          "col": 3,
+          "lit": "push"
+        },
+        "value": {
+          "type": 0,
+          "file": 5,
+          "line": 52,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 53,
+          "col": 3,
+          "lit": "outputs"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 56,
+          "col": 3,
+          "lit": "cache-from"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 59,
+          "col": 3,
+          "lit": "cache-to"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 62,
+          "col": 3,
+          "lit": "secrets"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 65,
+          "col": 3,
+          "lit": "github-token"
+        },
+        "value": {
+          "type": 3,
+          "file": 5,
+          "line": 67,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 5,
+          "line": 69,
+          "col": 3,
+          "lit": "ssh"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-01-26 08:29:09Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-01-26 08:29:09Z INFO ActionManager] Action node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO JobExtension] Adding .
+[2021-01-26 08:29:09Z INFO JobExtension] Adding .
+[2021-01-26 08:29:09Z INFO JobExtension] Adding .
+[2021-01-26 08:29:09Z INFO JobExtension] Adding .
+[2021-01-26 08:29:09Z INFO JobExtension] Adding .
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Diag': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_diag'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Diag': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_diag'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Diag': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_diag'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Diag': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_diag'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Diag': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_diag'
+[2021-01-26 08:29:09Z INFO JobExtension] Total accessible running process: 398.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO JobRunner] Total job steps: 5.
+[2021-01-26 08:29:09Z INFO JobRunner] Run all job steps.
+[2021-01-26 08:29:09Z INFO StepsRunner] Processing step: DisplayName='Run actions/checkout@v2'
+[2021-01-26 08:29:09Z INFO StepsRunner] Initialize Env context for step
+[2021-01-26 08:29:09Z INFO StepsRunner] Evaluating: success()
+[2021-01-26 08:29:09Z INFO StepsRunner] Result: true
+[2021-01-26 08:29:09Z INFO StepsRunner] Starting the step.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManager] Load action that reference repository from '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/actions/checkout/v2'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-01-26 08:29:09Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-01-26 08:29:09Z INFO ActionManager] Action node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO ExecutionContext] Reserve record order 7 to 12 for post job actions.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Diag': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_diag'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Temp': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_temp'
+[2021-01-26 08:29:09Z INFO ActionRunner] Write event payload to /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_temp/_github_workflow/event.json
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Temp': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_temp'
+[2021-01-26 08:29:09Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathFileCommand, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvFileCommand, Runner.Worker
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "sjnyos/guthubaction-test"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 58,
+  "col": 14,
+  "lit": "1"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 61,
+  "col": 14,
+  "lit": "false"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2021-01-26 08:29:09Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.InternalPluginSetRepoPathCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetEnvCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SetOutputCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.SaveStateCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddPathCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMaskCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.AddMatcherCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.RemoveMatcherCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.WarningCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.ErrorCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.DebugCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.GroupCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EndGroupCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ExtensionManager] Creating instance: GitHub.Runner.Worker.EchoCommandExtension, Runner.Worker
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command set-env
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command set-output
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command save-state
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command add-path
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command warning
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command error
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command debug
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command group
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command echo
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Externals': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/externals'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   File name: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/externals/node12/bin/node'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Arguments: '"/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/actions/checkout/v2/dist/index.js"'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/guthubaction-test/guthubaction-test'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 853591.
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] Process started with process id 853591, waiting for process exit.
+[2021-01-26 08:29:09Z INFO AddMaskCommandExtension] Add new secret mask with length of 80
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] Finished process 853591 with exit code 1, and elapsed time 00:00:00.3695053.
+[2021-01-26 08:29:09Z INFO StepsRunner] Step result: Failed
+[2021-01-26 08:29:09Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2021-01-26 08:29:09Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-01-26 08:29:09Z INFO StepsRunner] Processing step: DisplayName='Use Node.js 12.x'
+[2021-01-26 08:29:09Z INFO StepsRunner] Initialize Env context for step
+[2021-01-26 08:29:09Z INFO StepsRunner] Evaluating: success()
+[2021-01-26 08:29:09Z INFO StepsRunner] Result: false
+[2021-01-26 08:29:09Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-01-26 08:29:09Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-01-26 08:29:09Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-01-26 08:29:09Z INFO StepsRunner] Processing step: DisplayName='npm install and test'
+[2021-01-26 08:29:09Z INFO StepsRunner] Initialize Env context for step
+[2021-01-26 08:29:09Z INFO StepsRunner] Evaluating: success()
+[2021-01-26 08:29:09Z INFO StepsRunner] Result: false
+[2021-01-26 08:29:09Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-01-26 08:29:09Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-01-26 08:29:09Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-01-26 08:29:09Z INFO StepsRunner] Processing step: DisplayName='Login to Docker Hub'
+[2021-01-26 08:29:09Z INFO StepsRunner] Initialize Env context for step
+[2021-01-26 08:29:09Z INFO StepsRunner] Evaluating: success()
+[2021-01-26 08:29:09Z INFO StepsRunner] Result: false
+[2021-01-26 08:29:09Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-01-26 08:29:09Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-01-26 08:29:09Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-01-26 08:29:09Z INFO StepsRunner] Processing step: DisplayName='Build and push'
+[2021-01-26 08:29:09Z INFO StepsRunner] Initialize Env context for step
+[2021-01-26 08:29:09Z INFO StepsRunner] Evaluating: success()
+[2021-01-26 08:29:09Z INFO StepsRunner] Result: false
+[2021-01-26 08:29:09Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2021-01-26 08:29:09Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2021-01-26 08:29:09Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-01-26 08:29:09Z INFO StepsRunner] Processing step: DisplayName='Post Run actions/checkout@v2'
+[2021-01-26 08:29:09Z INFO StepsRunner] Initialize Env context for step
+[2021-01-26 08:29:09Z INFO StepsRunner] Evaluating: always()
+[2021-01-26 08:29:09Z INFO StepsRunner] Result: true
+[2021-01-26 08:29:09Z INFO StepsRunner] Starting the step.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManager] Load action that reference repository from '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/actions/checkout/v2'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Actions': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 50,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 53,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 56,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 58,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 61,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 62,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 14,
+          "lit": "false"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2021-01-26 08:29:09Z INFO ActionManager] Action pre node.js file: N/A.
+[2021-01-26 08:29:09Z INFO ActionManager] Action node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Temp': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_temp'
+[2021-01-26 08:29:09Z INFO ActionRunner] Write event payload to /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_temp/_github_workflow/event.json
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Work': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Temp': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_temp'
+[2021-01-26 08:29:09Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'repository': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "sjnyos/guthubaction-test"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'ref': default value evaluate result: ""
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'token': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'ssh-key': default value evaluate result: ""
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'ssh-known-hosts': default value evaluate result: ""
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'ssh-strict': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'persist-credentials': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 50,
+  "col": 14,
+  "lit": "true"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'path': default value evaluate result: ""
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'clean': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 55,
+  "col": 14,
+  "lit": "true"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'fetch-depth': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 58,
+  "col": 14,
+  "lit": "1"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'lfs': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 61,
+  "col": 14,
+  "lit": "false"
+}
+[2021-01-26 08:29:09Z INFO ActionManifestManager] Input 'submodules': default value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 70,
+  "col": 14,
+  "lit": "false"
+}
+[2021-01-26 08:29:09Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command set-env
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command set-output
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command save-state
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command add-path
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command warning
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command error
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command debug
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command group
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2021-01-26 08:29:09Z INFO ActionCommandManager] Register action command extension for command echo
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Externals': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/externals'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] Starting process:
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   File name: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/externals/node12/bin/node'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Arguments: '"/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_actions/actions/checkout/v2/dist/index.js"'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Working directory: '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/guthubaction-test/guthubaction-test'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Persist current code page: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] Updated oom_score_adj to 500 for PID: 853650.
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] Process started with process id 853650, waiting for process exit.
+[2021-01-26 08:29:09Z INFO JobServerQueue] Try to append 1 batches web console lines for record '82d72ad7-1be0-5bc5-0ea0-d8cdc5afe4f5', success rate: 1/1.
+[2021-01-26 08:29:09Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2021-01-26 08:29:09Z INFO ProcessInvokerWrapper] Finished process 853650 with exit code 0, and elapsed time 00:00:00.2321023.
+[2021-01-26 08:29:09Z INFO StepsRunner] Step result: 
+[2021-01-26 08:29:09Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2021-01-26 08:29:09Z INFO StepsRunner] Current state: job state = 'Failed'
+[2021-01-26 08:29:09Z INFO JobRunner] Finalize job.
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Bin': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/bin'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Root': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner'
+[2021-01-26 08:29:09Z INFO HostContext] Well known directory 'Diag': '/home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_diag'
+[2021-01-26 08:29:09Z INFO JobExtension] Initialize Env context
+[2021-01-26 08:29:09Z INFO JobExtension] Initialize steps context
+[2021-01-26 08:29:10Z INFO JobExtension] Total accessible running process: 399.
+[2021-01-26 08:29:10Z INFO JobExtension] Inspecting process environment variables. PID: 752770 (kworker/3:3-memcg_kmem_cache)
+[2021-01-26 08:29:10Z INFO LinuxProcessExtensions] Read env from /proc/752770/environ
+[2021-01-26 08:29:10Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/752770/environ' is denied.
+[2021-01-26 08:29:10Z INFO JobExtension] Inspecting process environment variables. PID: 765874 (kworker/u8:0-ext4-rsv-conversion)
+[2021-01-26 08:29:10Z INFO LinuxProcessExtensions] Read env from /proc/765874/environ
+[2021-01-26 08:29:10Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/765874/environ' is denied.
+[2021-01-26 08:29:10Z INFO JobExtension] Inspecting process environment variables. PID: 853590 (python3)
+[2021-01-26 08:29:10Z INFO LinuxProcessExtensions] Read env from /proc/853590/environ
+[2021-01-26 08:29:10Z WARN JobExtension] Ignore exception during read process environment variables: Access to the path '/proc/853590/environ' is denied.
+[2021-01-26 08:29:10Z INFO JobRunner] Job result after all job steps finish: Failed
+[2021-01-26 08:29:10Z INFO JobRunner] Completing the job execution context.
+[2021-01-26 08:29:10Z INFO JobRunner] Shutting down the job server queue.
+[2021-01-26 08:29:10Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2021-01-26 08:29:10Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2021-01-26 08:29:10Z INFO JobServerQueue] Try to append 1 batches web console lines for record '82d72ad7-1be0-5bc5-0ea0-d8cdc5afe4f5', success rate: 1/1.
+[2021-01-26 08:29:10Z INFO JobServerQueue] Try to append 1 batches web console lines for record '75896e28-027f-45c3-8bae-09ab34451e67', success rate: 1/1.
+[2021-01-26 08:29:11Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'c076ed6a-e176-4f4f-aa59-7eb6ac7f2786', success rate: 1/1.
+[2021-01-26 08:29:11Z INFO JobServerQueue] All queue process task stopped.
+[2021-01-26 08:29:11Z INFO JobServerQueue] Web console line queue drained.
+[2021-01-26 08:29:11Z INFO JobServerQueue] Uploading 4 files in one shot.
+[2021-01-26 08:29:14Z INFO JobServerQueue] Try to upload 4 log files or attachments, success rate: 4/4.
+[2021-01-26 08:29:14Z INFO JobServerQueue] File upload queue drained.
+[2021-01-26 08:29:14Z INFO JobServerQueue] Timeline update queue drained.
+[2021-01-26 08:29:14Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2021-01-26 08:29:14Z INFO TempDirectoryManager] Cleaning runner temp folder: /home/ijarus/Documents/nodejs/hello-world-node-express/actions-runner/_work/_temp
+[2021-01-26 08:29:14Z INFO JobRunner] Raising job completed event.
+[2021-01-26 08:29:15Z INFO Worker] Job completed.
